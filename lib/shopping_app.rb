@@ -15,12 +15,12 @@ seller = Seller.new("DICストア")
 10.times{ Item.new("グラフィックボード", 23800, seller) }
 
 puts "🤖 あなたの名前を教えてください"
-customer = Customer.new(gets.chomp)
+customer = Customer.new(gets.chomp) # Customerクラスをインスタンス化。名前の入力待ち。customer変数に代入
 
 puts "🏧 ウォレットにチャージする金額を入力にしてください"
-customer.wallet.deposit(gets.chomp.to_i)
+customer.wallet.deposit(gets.chomp.to_i) #depositに入金。金額の入力まち。
 
-puts "🛍️ ショッピングを開始します"
+puts "🛍️ ショッピングを開始します"# 購入が確定するまで繰り返す。
 end_shopping = false
 while !end_shopping do
   puts "📜 商品リスト"
@@ -48,15 +48,15 @@ puts "💸 購入を確定しますか？(yes/no)"
 customer.cart.check_out if gets.chomp == "yes"
 
 puts "୨୧┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈結果┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈୨୧"
-puts "️🛍️ ️#{customer.name}の所有物"
+puts "️🛍️ ️#{customer.name}の所有物"# costomeerが選んだ商品一覧
 customer.items_list
-puts "😱👛 #{customer.name}のウォレット残高: #{customer.wallet.balance}"
+puts "😱👛 #{customer.name}のウォレット残高: #{customer.wallet.balance}" #coetomeer.nameのウォレット残高を表示 
 
-puts "📦 #{seller.name}の在庫状況"
+puts "📦 #{seller.name}の在庫状況"# オーナーの在庫リスト表示
 seller.items_list
 puts "😻👛 #{seller.name}のウォレット残高: #{seller.wallet.balance}"
 
-puts "🛒 カートの中身"
+puts "🛒 カートの中身"# 選んだ商品
 customer.cart.items_list
 puts "🌚 合計金額: #{customer.cart.total_amount}"
 

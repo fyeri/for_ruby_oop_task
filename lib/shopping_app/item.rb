@@ -1,7 +1,10 @@
-class Item
-  attr_reader :name, :price
+require_relative "ownable"
 
-  @@instances = []
+class Item
+  include Ownable
+  attr_reader :name, :price #name,priceの読み込み
+
+  @@instances = [] #self格納
 
   def initialize(name, price, owner=nil)
     @name = name
